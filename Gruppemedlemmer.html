@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <title>Gruppemedlemmer</title>
+</head>
+<body>
+    <header>
+         <nav>
+            <a href="index.html">IS-310 Gruppe</a>
+            <ul>
+                <li><a href="index.html">Hjem</a></li>
+                <li><a href="Gruppemedlemmer.html">Gruppemedlemmer</a></li>
+                <li><a href="index.html#prosjekt">Prosjekt</a></li>
+                <li><a href="index.html#kontakt">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="gruppe-introduksjon" class="intro-section">
+            <h1>Gruppe 13</h1>
+            <p class="intro-copy">Nokka gruppe 13 introduksjon idk.</p>
+            <div class="group-picture">
+                <img alt="gruppebilde eller video">
+            </div>
+        </section>
+        <section class="member-pictures">
+            <h2>Gruppemedlemmer</h2>
+
+            <div class="grid"> <!-- Legge til linkedin og andre sosiale medier github profil link osv og style ikoner slik at man trykker på ikon av SoMe også kommer du til linken-->
+                <article class="card" tabindex="0" data-good-at="Eksempel info Ferdigheter" data-more-info="Interesser og anna info ig">
+                    <img alt="member 1">
+                    <div class="card-content">
+                        <p class="card-role">Rolle</p>
+                        <h3>Medlem 1</h3>
+                    </div>
+                </article>
+                <article class="card" tabindex="0" data-good-at="Ferdigheter etc" data-more-info="Mer info">
+                    <img alt="member 2">
+                    <div class="card-content">
+                        <p class="card-role">Rolle</p>
+                        <h3>Medlem 2</h3>
+                    </div>
+                </article>
+                <article class="card" tabindex="0" data-good-at="etc" data-more-info="etc">
+                    <img alt="osv">
+                    <div class="card-content">
+                        <p class="card-role">Rolle</p>
+                        <h3>Medlem 3</h3>
+                    </div>
+                </article>
+                <article class="card" tabindex="0" data-good-at="" data-more-info="">
+                    <img alt="">
+                    <div class="card-content">
+                        <p class="card-role">Rolle</p>
+                        <h3>Medlem 4 Osv</h3>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+    <div class="image-modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+        <div class="member-modal">
+            <button class="modal-close" type="button" aria-label="Lukk informasjon">&times;</button>
+            <img class="modal-member-image" src="" alt="">
+            <p class="card-role modal-role"></p>
+            <h2 id="modal-title"></h2>
+            <p><strong>God på:</strong> <span class="modal-strengths"></span></p>
+            <p class="modal-description"></p>
+        </div>
+    </div>
+</body>
+</html>

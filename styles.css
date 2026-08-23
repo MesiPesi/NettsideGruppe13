@@ -4,24 +4,28 @@
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #ffffff;
-    color: #000000;
+    font-family: Georgia, 'Times New Roman', serif;
+    background: #f5f1e8;
+    color: #1e2d2a;
     line-height: 1.6;
 }
 
 a {
-    color: #000000;
+    color: #1e2d2a;
     text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline;
+    color: #bd5b38;
 }
 
 header {
-    border-bottom: 1px solid #cccccc;
-    padding: 1rem 0;
+    background: #1e2d2a;
+    color: #f5f1e8;
+    padding: 1.1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 nav {
@@ -36,6 +40,8 @@ nav {
 nav > a {
     font-weight: bold;
     font-size: 1.2rem;
+    color: #f5f1e8;
+    margin-right: 2rem;
 }
 
 nav ul {
@@ -43,7 +49,17 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 1.5rem;
+    gap: 1.25rem;
+}
+
+nav li a {
+    color: #f5f1e8;
+    transition: color 180ms ease;
+}
+
+nav li a:hover,
+nav li a:focus-visible {
+    color: #e7a27c;
 }
 
 nav li {
@@ -53,13 +69,13 @@ nav li {
 main {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 2rem 1rem;
+    padding: 3rem 1rem;
 }
 
 section {
-    margin-bottom: 3rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid #cccccc;
+    margin-bottom: 4rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid #d8cec0;
 }
 
 section:last-child {
@@ -72,11 +88,12 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1;
 }
 
 h2 {
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 h3 {
@@ -91,9 +108,167 @@ article {
     margin-bottom: 1rem;
 }
 
+.card-role {
+    color: #bd5b38;
+    font-family: Arial, sans-serif;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.intro-copy {
+    font-size: 1.15rem;
+    max-width: 34rem;
+}
+
+.group-picture {
+    margin-top: 2rem;
+    max-height: 24rem;
+    overflow: hidden;
+}
+
+.group-picture img {
+    display: block;
+    height: 100%;
+    max-height: 24rem;
+    object-fit: cover;
+    width: 100%;
+}
+
+.grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.card {
+    background: #fffaf1;
+    border: 1px solid #d8cec0;
+    cursor: pointer;
+    margin: 0;
+    overflow: hidden;
+    transition: box-shadow 180ms ease, transform 180ms ease;
+}
+
+.card:hover,
+.card:focus-visible {
+    box-shadow: 0 0.75rem 1.5rem rgba(30, 45, 42, 0.14);
+    outline: none;
+    transform: translateY(-0.25rem);
+}
+
+.card img {
+    aspect-ratio: 1 / 1;
+    display: block;
+    object-fit: cover;
+    width: 100%;
+}
+
+.card img:not([src]),
+.card img[src=""] {
+    background: #ded5c8;
+}
+
+.card-content {
+    padding: 1rem;
+}
+
+.card-content h3,
+.card-content p {
+    margin: 0;
+}
+
+.card-role {
+    margin-bottom: 0.25rem !important;
+}
+
+.image-modal {
+    align-items: center;
+    background: rgba(20, 30, 28, 0.88);
+    display: flex;
+    inset: 0;
+    justify-content: center;
+    opacity: 0;
+    padding: 2rem;
+    pointer-events: none;
+    position: fixed;
+    transition: opacity 180ms ease;
+    visibility: hidden;
+    z-index: 2;
+}
+
+.image-modal.is-open {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+}
+
+.member-modal {
+    background: #fffaf1;
+    max-width: 30rem;
+    padding: 2.5rem 2rem 2rem;
+    position: relative;
+    width: 100%;
+}
+
+.modal-member-image {
+    aspect-ratio: 1 / 1;
+    background: #ded5c8;
+    display: block;
+    margin-bottom: 1.5rem;
+    object-fit: cover;
+    width: 100%;
+}
+
+.member-modal h2,
+.member-modal p {
+    margin-top: 0;
+}
+
+.modal-close {
+    background: transparent;
+    border: 0;
+    color: #fffaf1;
+    cursor: pointer;
+    font-size: 2rem;
+    line-height: 1;
+    padding: 0.5rem;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+}
+
+.modal-role {
+    margin-bottom: 0.25rem !important;
+}
+
 footer {
-    border-top: 1px solid #cccccc;
+    border-top: 1px solid #d8cec0;
     padding: 1rem;
     text-align: center;
-    color: #666666;
+    color: #68736d;
+}
+
+@media (max-width: 700px) {
+    nav {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        gap: 0.5rem 1rem;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 420px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
 }
