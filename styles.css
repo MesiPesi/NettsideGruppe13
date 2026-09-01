@@ -183,6 +183,15 @@ article {
     margin-bottom: 0.25rem !important;
 }
 
+.card:nth-child(5),
+.card:nth-child(6) {
+    grid-column: 2 / span 1;
+}
+
+.card:nth-child(6) {
+    grid-column: 3 / span 1;
+}
+
 .image-modal {
     align-items: center;
     background: rgba(20, 30, 28, 0.88);
@@ -229,7 +238,7 @@ article {
 .modal-close {
     background: transparent;
     border: 0;
-    color: #fffaf1;
+    color: black;
     cursor: pointer;
     font-size: 2rem;
     line-height: 1;
