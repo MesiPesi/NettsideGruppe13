@@ -80,6 +80,7 @@ function openMemberInfo(card) {
     modalStrengths.textContent = card.dataset.goodAt || '';
     modalDescription.textContent = card.dataset.moreInfo || '';
     modal.classList.add('is-open');
+    document.body.classList.add("modal-open");
     modal.setAttribute('aria-hidden', 'false');
     closeButton?.focus();
 }
@@ -90,6 +91,7 @@ function closeImage() {
     }
 
     modal.classList.remove('is-open');
+    document.body.classList.remove("modal-open");
     modal.setAttribute('aria-hidden', 'true');
     if (modalImage) {
         modalImage.src = '';

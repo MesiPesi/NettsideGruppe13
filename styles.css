@@ -247,12 +247,20 @@ article {
     visibility: visible;
 }
 
+body.modal-open {
+    overflow: hidden;
+}
+
 .member-modal {
     background: #fffaf1;
     max-width: 30rem;
     padding: 2.5rem 2rem 2rem;
     position: relative;
     width: 100%;
+
+    max-height: 90vh;
+    overflow-y: auto;
+
 }
 
 .modal-member-image {
