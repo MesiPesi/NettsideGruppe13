@@ -124,8 +124,9 @@ article {
 
 .group-picture {
     margin-top: 2rem;
-    max-height: 24rem;
+    max-height: 100%;
     overflow: hidden;
+
 }
 
 .group-picture img {
