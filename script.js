@@ -1,3 +1,60 @@
+// Load navbar from navbar.html
+function loadNavbar() {
+    fetch('navbar.html')
+        .then(response => response.text())
+        .then(html => {
+            const navbarContainer = document.querySelector('body');
+            navbarContainer.insertAdjacentHTML('afterbegin', html);
+        })
+        .catch(error => console.error('Error loading navbar:', error));
+}
+
+// Update progress bar based on completed projects
+function updateProgressBar() {
+    const progressBar = document.getElementById('progressBar');
+    const progressText = document.getElementById('progressText');
+    
+    if (!progressBar || !progressText) {
+        return; // Progress bar not on this page
+    }
+
+    const fullførtDiv = document.querySelector('.fullført');
+    const pågårDiv = document.querySelector('.pågår');
+    
+    if (!fullførtDiv || !pågårDiv) {
+        return;
+    }
+
+    const completedProjects = fullførtDiv.querySelectorAll('.project-card').length;
+    const ongoingProjects = pågårDiv.querySelectorAll('.project-card').length;
+    const totalProjects = completedProjects + ongoingProjects;
+
+    if (totalProjects === 0) {
+        progressBar.style.width = '0%';
+        progressText.textContent = '0% fullført';
+        return;
+    }
+
+    const percentage = (completedProjects / totalProjects) * 100;
+    progressBar.style.width = percentage + '%';
+    progressText.textContent = Math.round(percentage) + '% fullført';
+    
+    // Watch for changes to update progress bar dynamically
+    const observer = new MutationObserver(() => {
+        updateProgressBar();
+    });
+    
+    const config = { childList: true, subtree: true };
+    observer.observe(fullførtDiv, config);
+    observer.observe(pågårDiv, config);
+}
+
+// Load navbar on page load
+document.addEventListener('DOMContentLoaded', function() {
+    loadNavbar();
+    updateProgressBar();
+});
+
 const modal = document.querySelector('.image-modal');
 const closeButton = document.querySelector('.modal-close');
 const modalImage = document.querySelector('.modal-member-image');
