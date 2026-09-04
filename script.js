@@ -77,8 +77,8 @@ function openMemberInfo(card) {
     modalImage.alt = image.alt;
     modalRole.textContent = role.textContent;
     modalTitle.textContent = title.textContent;
+    modalDescription.textContent = card.dataset.moreInfo || ''; 
     modalStrengths.textContent = card.dataset.goodAt || '';
-    modalDescription.textContent = card.dataset.moreInfo || '';
     modal.classList.add('is-open');
     document.body.classList.add("modal-open");
     modal.setAttribute('aria-hidden', 'false');
